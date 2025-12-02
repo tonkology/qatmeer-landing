@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qatmeer - Automated Date Sorting & Quality Control</title>
-    
-    <!-- Meta Tags for SEO -->
-    <meta name="description" content="Qatmeer helps date processors sort and grade dates automatically using low-cost robotics and AI, designed for small-to-large production lines.">
-    <meta name="keywords" content="date sorting, quality control, robotics, AI, food processing, automation">
+    <!-- English Meta Tags -->
+    <title>Qatmeer — Automated Date Sorting & Quality Control</title>
+    <meta name="description" content="Qatmeer automates sorting and grading of dates using low-cost robotics and on-edge AI. Pilot-ready systems for small producers and scalable solutions for industrial lines. Request early access.">
+    <meta name="keywords" content="date sorting, quality control, robotics, AI, food processing, automation, qatmeer">
     <meta name="author" content="Qatmeer">
     
+    <!-- Arabic Meta Tags (for language toggle) -->
+    <meta name="description-ar" content="قطمير يوفّر حلًّا آليًا لفرز وتصنيف التمر باستخدام روبوتات منخفضة التكلفة وذكاء اصطناعي يعمل محليًا. أنظمة جاهزة للتجربة الميدانية وقابلة للتوسيع للمصانع. قدِّم لطلب العرض التجريبي.">
+    <meta name="title-ar" content="قطمير — نظام فرز وتقييم التمر آليًا">
+    
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Qatmeer - Automated Date Sorting & Quality Control">
-    <meta property="og:description" content="Automated sorting and quality control for dates — fast, food-safe, and affordable.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=1200&h=630&fit=crop">
-    <meta property="og:url" content="https://yourusername.github.io/qatmeer-landing">
+    <meta property="og:title" content="Qatmeer — Automated Date Sorting & Quality Control">
+    <meta property="og:description" content="Automate sorting and grading of dates with low-cost robotics + AI. Pilot-ready systems for small producers and scalable solutions for industrial lines.">
+    <meta property="og:image" content="assets/hero_page_14.jpg">
+    <meta property="og:url" content="https://tonkology.github.io/qatmeer-landing">
     <meta property="og:type" content="website">
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Qatmeer - Automated Date Sorting & Quality Control">
-    <meta name="twitter:description" content="Automated sorting and quality control for dates — fast, food-safe, and affordable.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=1200&h=630&fit=crop">
+    <meta name="twitter:title" content="Qatmeer — Automated Date Sorting & Quality Control">
+    <meta name="twitter:description" content="Automate sorting and grading of dates with low-cost robotics + AI. Pilot-ready systems for small producers and scalable solutions for industrial lines.">
+    <meta name="twitter:image" content="assets/hero_page_14.jpg">
     
     <!-- Favicon -->
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
@@ -71,19 +74,31 @@
                 </a>
             </div>
             
-            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <div class="nav-actions">
+                <div class="language-toggle">
+                    <button id="langToggle" class="lang-btn" aria-label="Toggle language">
+                        <span class="lang-en">العربية</span>
+                        <span class="lang-ar" style="display: none;">English</span>
+                    </button>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="hamburger"></span>
                 <span class="hamburger"></span>
                 <span class="hamburger"></span>
             </button>
             
+            </div>
+            
             <ul class="nav-menu" role="menubar">
-                <li role="none"><a href="#home" role="menuitem">Home</a></li>
-                <li role="none"><a href="#features" role="menuitem">Features</a></li>
-                <li role="none"><a href="#how-it-works" role="menuitem">How it works</a></li>
-                <li role="none"><a href="#pricing" role="menuitem">Pricing</a></li>
-                <li role="none"><a href="#team" role="menuitem">Team</a></li>
-                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+                <li role="none"><a href="#home" role="menuitem" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li role="none"><a href="#features" role="menuitem" data-en="Features" data-ar="المميزات">Features</a></li>
+                <li role="none"><a href="#how-it-works" role="menuitem" data-en="How it works" data-ar="كيف يعمل">How it works</a></li>
+                <li role="none"><a href="#pricing" role="menuitem" data-en="Pricing" data-ar="الأسعار">Pricing</a></li>
+                <li role="none"><a href="#team" role="menuitem" data-en="Team" data-ar="الفريق">Team</a></li>
+                <li role="none"><a href="#contact" role="menuitem" data-en="Contact" data-ar="التواصل">Contact</a></li>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
@@ -92,19 +107,34 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Qatmeer</h1>
-                <p class="hero-tagline">Automated sorting and quality control for dates — fast, food-safe, and affordable.</p>
-                <p class="hero-description">Qatmeer helps date processors sort and grade dates automatically using low-cost robotics and AI, designed for small-to-large production lines.</p>
+                <h1 class="hero-title" 
+                    data-en="Qatmeer — Automated date sorting that's food-safe, affordable, and scalable"
+                    data-ar="قطمير — فرز التمر آليًا بتصميم غذائي، تكلفة مناسبة وقابلية للتوسع">
+                    Qatmeer — Automated date sorting that's food-safe, affordable, and scalable
+                </h1>
+                <p class="hero-tagline" 
+                   data-en="Turn manual grading into a fast, predictable process — pilot-ready in weeks."
+                   data-ar="حوّل الفرز اليدوي إلى عملية سريعة ومضمونة — نسخة تجريبية جاهزة خلال أسابيع.">
+                   Turn manual grading into a fast, predictable process — pilot-ready in weeks.
+                </p>
+                <p class="hero-description" 
+                   data-en="Qatmeer combines food-grade stainless CNC housings, on-edge AI, and modular actuation to sort and grade dates by size and quality. Designed for small packers and scalable to industrial lines."
+                   data-ar="يجمع قطمير بين هياكل فولاذية قابلة للتصنيع بدقة (CNC)، ذكاءٍ اصطناعي يعمل محليًا، وآليات فرز مرنة لفرز التمر حسب الحجم والجودة. مناسب للمختبرات الصغيرة ومحترف للتوسيع إلى خطوط إنتاج.">
+                   Qatmeer combines food-grade stainless CNC housings, on-edge AI, and modular actuation to sort and grade dates by size and quality. Designed for small packers and scalable to industrial lines.
+                </p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Get Early Access</a>
-                    <button class="btn btn-outline" id="watchDemo">Watch Demo</button>
+                    <a href="#contact" class="btn btn-primary" 
+                       data-en="Get Early Access" 
+                       data-ar="احصل على وصول مبكر">Get Early Access</a>
+                    <button class="btn btn-outline" id="watchDemo" 
+                            data-en="Watch Demo" 
+                            data-ar="شاهد العرض">Watch Demo</button>
                 </div>
             </div>
             <div class="hero-visual">
-                <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=600&h=400&fit=crop" 
-                     alt="Date processing facility with automated sorting equipment" 
+                <img src="assets/hero_page_14.jpg" 
+                     alt="Qatmeer system layout prototype" 
                      loading="eager">
-                <!-- Credit: Photo by Zarak Khan on Unsplash -->
             </div>
         </div>
     </section>
@@ -125,48 +155,69 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Key Features</h2>
-            <p class="section-subtitle">Advanced technology for superior date processing</p>
+            <h2 class="section-title" data-en="Why Qatmeer" data-ar="لماذا قطمير">Why Qatmeer</h2>
+            <p class="section-subtitle" data-en="Food-grade design with pilot-first approach" data-ar="تصميم غذائي مع نهج تجريبي أولاً">Food-grade design with pilot-first approach</p>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L4 6V12C4 16.55 7.84 20.74 12 21.5C16.16 20.74 20 16.55 20 12V6L12 2Z" fill="currentColor"/>
+                            <path d="M12 7L15 10L10 15L9 14L12 7Z" fill="white" stroke="white" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title" data-en="Food-grade design" data-ar="تصميم غذائي">Food-grade design</h3>
+                    <p class="feature-description" data-en="All product-contact parts are stainless steel (304/316) and easy to clean." data-ar="أجزاء الملامسة للمنتج من الستانلس ستيل (304/316) وسهلة التنظيف.">All product-contact parts are stainless steel (304/316) and easy to clean.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 17L9 11L13 15L21 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 3V7H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="4" y="15" width="3" height="4" fill="currentColor" opacity="0.6" rx="0.5"/>
+                            <rect x="8" y="13" width="3" height="6" fill="currentColor" opacity="0.7" rx="0.5"/>
+                            <rect x="12" y="11" width="3" height="8" fill="currentColor" opacity="0.8" rx="0.5"/>
+                            <rect x="16" y="9" width="3" height="10" fill="currentColor" rx="0.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title" data-en="Pilot-first & modular" data-ar="نسخة تجريبيّة قابلة للتوسيع">Pilot-first & modular</h3>
+                    <p class="feature-description" data-en="Start with a pilot unit; add delta, delay, or washing modules later." data-ar="ابدأ بنسخة تجريبيّة ثم أضف وحدات دلتا أو تأخير أو غسيل لاحقًا.">Start with a pilot unit; add delta, delay, or washing modules later.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                            <path d="M12 16L13.5 20L16 18L13.5 22L12 16Z" fill="currentColor" opacity="0.6"/>
+                            <path d="M16 18L20 16.5L18 14L22 16.5L16 18Z" fill="currentColor" opacity="0.6"/>
                         </svg>
                     </div>
-                    <h3 class="feature-title">AI-Powered Sorting</h3>
-                    <p class="feature-description">Advanced computer vision identifies and sorts dates by quality, size, and ripeness with 99.5% accuracy.</p>
+                    <h3 class="feature-title" data-en="On-edge AI" data-ar="ذكاء اصطناعي محلي">On-edge AI</h3>
+                    <p class="feature-description" data-en="Runs locally (no required internet), fast inference for high throughput and privacy." data-ar="يعمل دون اتصال بالإنترنت، سريع ومحافظ على الخصوصية.">Runs locally (no required internet), fast inference for high throughput and privacy.</p>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.9 1 3 1.9 3 3V21C3 22.1 3.9 23 5 23H19C20.1 23 21 22.1 21 21V9H21ZM19 21H5V3H13V9H19V21Z" fill="currentColor"/>
-                        </svg>
+            </div>
+            
+            <!-- Detailed Features -->
+            <div class="detailed-features">
+                <h3 class="subsection-title" data-en="Technical Features" data-ar="المميزات التقنية">Technical Features</h3>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <h4 data-en="Reliable feeding" data-ar="تغذية موثوقة">Reliable feeding</h4>
+                        <p data-en="Gravity hopper + precision feeder reduces jams." data-ar="حوض جاذبي وُمغذّي دقيق يقلل الانسدادات.">Gravity hopper + precision feeder reduces jams.</p>
                     </div>
-                    <h3 class="feature-title">Food-Safe Design</h3>
-                    <p class="feature-description">HACCP-compliant materials and easy-clean surfaces ensure your products meet safety standards.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z" fill="currentColor"/>
-                        </svg>
+                    <div class="feature-item">
+                        <h4 data-en="Edge AI detection" data-ar="كشف ذكي محلي">Edge AI detection</h4>
+                        <p data-en="Jetson-class compute for real-time classification." data-ar="حوسبة Jetson للتصنيف الفوري.">Jetson-class compute for real-time classification.</p>
                     </div>
-                    <h3 class="feature-title">Cost-Effective</h3>
-                    <p class="feature-description">Reduce labor costs by up to 70% while increasing throughput and maintaining consistent quality.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z" fill="currentColor"/>
-                        </svg>
+                    <div class="feature-item">
+                        <h4 data-en="Stainless CNC rod system" data-ar="نظام قضبان ستانلس CNC">Stainless CNC rod system</h4>
+                        <p data-en="Food-safe housings; delta upgrade available." data-ar="هياكل آمنة غذائيًا؛ إمكانية الترقية لنظام دلتا.">Food-safe housings; delta upgrade available.</p>
                     </div>
-                    <h3 class="feature-title">Scalable Solution</h3>
-                    <p class="feature-description">Modular design adapts from small farms to large processing facilities with easy expansion.</p>
+                    <div class="feature-item">
+                        <h4 data-en="Operator UI & reporting" data-ar="واجهة تشغيل وتقارير">Operator UI & reporting</h4>
+                        <p data-en="Calibration, logs, CSV export." data-ar="معايرة، سجلّات، وتصدير CSV.">Calibration, logs, CSV export.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -175,31 +226,31 @@
     <!-- How It Works Section -->
     <section id="how-it-works" class="how-it-works">
         <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">Simple, efficient process in three steps</p>
+            <h2 class="section-title" data-en="How It Works" data-ar="كيف يعمل">How It Works</h2>
+            <p class="section-subtitle" data-en="Simple, efficient process in three steps" data-ar="عملية بسيطة وفعّالة في ثلاث خطوات">Simple, efficient process in three steps</p>
             
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-number">1</div>
                     <div class="timeline-content">
-                        <h3>Feed & Scan</h3>
-                        <p>Dates are fed into the system where high-resolution cameras capture detailed images of each date.</p>
+                        <h3 data-en="Load & align" data-ar="التحميل والمحاذاة">Load & align</h3>
+                        <p data-en="Hopper & conveyor align dates for imaging." data-ar="الحوض والناقل يحضّر التمر للتصوير.">Hopper & conveyor align dates for imaging.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-number">2</div>
                     <div class="timeline-content">
-                        <h3>AI Analysis</h3>
-                        <p>Our AI analyzes each date for quality, size, ripeness, and defects in real-time with industry-leading accuracy.</p>
+                        <h3 data-en="Inspect & classify" data-ar="الفحص والتصنيف">Inspect & classify</h3>
+                        <p data-en="Cameras + on-edge model decide keep / rework / reject." data-ar="الكاميرات والنموذج المحلي يقرّر الاحتفاظ/إعادة الفرز/الرفض.">Cameras + on-edge model decide keep / rework / reject.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-number">3</div>
                     <div class="timeline-content">
-                        <h3>Sort & Package</h3>
-                        <p>Robotic arms sort dates into designated bins based on your quality specifications and packaging requirements.</p>
+                        <h3 data-en="Sort & collect" data-ar="الفرز والتجميع">Sort & collect</h3>
+                        <p data-en="Actuators send fruit to chutes; operator dashboard logs runs." data-ar="المحركات توجه التمر للمخارج وواجهة المشغّل تسجّل النتائج.">Actuators send fruit to chutes; operator dashboard logs runs.</p>
                     </div>
                 </div>
             </div>
@@ -213,64 +264,62 @@
             <p class="section-subtitle">Choose the right solution for your operation</p>
             
             <div class="pricing-grid">
-                <!-- Pilot Plan -->
+                <!-- Small - Pilot -->
                 <div class="pricing-card">
-                    <h3 class="plan-name">Pilot</h3>
+                    <h3 class="plan-name" data-en="Small — Pilot" data-ar="صغير — تجريبي">Small — Pilot</h3>
                     <div class="plan-price">
-                        <span class="currency">$</span>
-                        <span class="amount">15,000</span>
-                        <span class="period">/month</span>
+                        <span class="amount" data-en="50,000–100,000" data-ar="٥٠،٠٠٠–١٠٠،٠٠٠">50,000–100,000</span>
+                        <span class="currency" data-en="SAR" data-ar="ر.س">SAR</span>
                     </div>
-                    <p class="plan-description">Perfect for small farms and initial testing</p>
+                    <p class="plan-description" data-en="~300–1,000 dates/hour" data-ar="٣٠٠–١٠٠٠ تمرة/ساعة">~300–1,000 dates/hour</p>
                     <ul class="plan-features">
-                        <li>Up to 500kg/hour capacity</li>
-                        <li>Basic AI sorting</li>
-                        <li>Standard support</li>
-                        <li>3-month minimum contract</li>
-                        <li>Setup and training included</li>
+                        <li data-en="AI Box (Jetson)" data-ar="صندوق الذكاء الاصطناعي (Jetson)">AI Box (Jetson)</li>
+                        <li data-en="2 cameras" data-ar="٢ كاميرا">2 cameras</li>
+                        <li data-en="1.5–3 m conveyor" data-ar="ناقل ١.٥–٣ متر">1.5–3 m conveyor</li>
+                        <li data-en="Rod system" data-ar="نظام القضبان">Rod system</li>
+                        <li data-en="Basic operator UI" data-ar="واجهة مشغّل أساسية">Basic operator UI</li>
+                        <li data-en="Pilot support" data-ar="دعم تجريبي">Pilot support</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                    <a href="#contact" class="btn btn-outline" data-en="Get Started" data-ar="ابدأ الآن">Get Started</a>
                 </div>
                 
-                <!-- Production Plan -->
+                <!-- Medium - Production -->
                 <div class="pricing-card featured">
-                    <div class="popular-badge">Most Popular</div>
-                    <h3 class="plan-name">Production</h3>
+                    <div class="popular-badge" data-en="Most Popular" data-ar="الأكثر شعبية">Most Popular</div>
+                    <h3 class="plan-name" data-en="Medium — Production" data-ar="متوسط — إنتاج">Medium — Production</h3>
                     <div class="plan-price">
-                        <span class="currency">$</span>
-                        <span class="amount">35,000</span>
-                        <span class="period">/month</span>
+                        <span class="amount" data-en="100,000–250,000" data-ar="١٠٠،٠٠٠–٢٥٠،٠٠٠">100,000–250,000</span>
+                        <span class="currency" data-en="SAR" data-ar="ر.س">SAR</span>
                     </div>
-                    <p class="plan-description">Ideal for medium-scale operations</p>
+                    <p class="plan-description" data-en="~1,000–5,000 dates/hour" data-ar="١٠٠٠–٥٠٠٠ تمرة/ساعة">~1,000–5,000 dates/hour</p>
                     <ul class="plan-features">
-                        <li>Up to 2,000kg/hour capacity</li>
-                        <li>Advanced AI with custom grades</li>
-                        <li>Priority support</li>
-                        <li>12-month contract</li>
-                        <li>Remote monitoring dashboard</li>
-                        <li>Predictive maintenance</li>
+                        <li data-en="Industrial conveyor" data-ar="ناقل صناعي">Industrial conveyor</li>
+                        <li data-en="Hardened software" data-ar="برامج معززة">Hardened software</li>
+                        <li data-en="Multi-camera setup" data-ar="إعداد متعدد الكاميرات">Multi-camera setup</li>
+                        <li data-en="Improved feeder" data-ar="مغذي محسّن">Improved feeder</li>
+                        <li data-en="Optional single delta cell" data-ar="خلية دلتا اختيارية">Optional single delta cell</li>
+                        <li data-en="Priority support" data-ar="دعم أولوي">Priority support</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#contact" class="btn btn-primary" data-en="Get Started" data-ar="ابدأ الآن">Get Started</a>
                 </div>
                 
-                <!-- Enterprise Plan -->
+                <!-- Large - Enterprise -->
                 <div class="pricing-card">
-                    <h3 class="plan-name">Enterprise</h3>
+                    <h3 class="plan-name" data-en="Large — Enterprise" data-ar="كبير — مؤسسي">Large — Enterprise</h3>
                     <div class="plan-price">
-                        <span class="currency">$</span>
-                        <span class="amount">65,000</span>
-                        <span class="period">/month</span>
+                        <span class="amount" data-en="250,000+" data-ar="٢٥٠،٠٠٠+">250,000+</span>
+                        <span class="currency" data-en="SAR" data-ar="ر.س">SAR</span>
                     </div>
-                    <p class="plan-description">For large-scale processing facilities</p>
+                    <p class="plan-description" data-en="5,000+ dates/hour" data-ar="٥٠٠٠+ تمرة/ساعة">5,000+ dates/hour</p>
                     <ul class="plan-features">
-                        <li>5,000kg/hour+ capacity</li>
-                        <li>Multi-line integration</li>
-                        <li>24/7 dedicated support</li>
-                        <li>Custom contract terms</li>
-                        <li>API integration</li>
-                        <li>White-label options</li>
+                        <li data-en="Multi-delta arrays" data-ar="مصفوفات دلتا متعددة">Multi-delta arrays</li>
+                        <li data-en="Integrated washing" data-ar="غسيل متكامل">Integrated washing</li>
+                        <li data-en="SCADA/PLC integration" data-ar="تكامل SCADA/PLC">SCADA/PLC integration</li>
+                        <li data-en="Commissioning & warranty" data-ar="تشغيل وضمان">Commissioning & warranty</li>
+                        <li data-en="24/7 dedicated support" data-ar="دعم مخصص ٢٤/٧">24/7 dedicated support</li>
+                        <li data-en="Custom integration" data-ar="تكامل مخصص">Custom integration</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline">Contact Sales</a>
+                    <a href="#contact" class="btn btn-outline" data-en="Contact Sales" data-ar="تواصل مع المبيعات">Contact Sales</a>
                 </div>
             </div>
         </div>
@@ -279,58 +328,61 @@
     <!-- Add-ons Section -->
     <section class="addons">
         <div class="container">
-            <h2 class="section-title">Optional Add-ons</h2>
-            <p class="section-subtitle">Enhance your system with specialized modules</p>
-            
-            <div class="addons-grid">
-                <div class="addon-item">
-                    <input type="checkbox" id="delta-sorting" class="addon-checkbox" data-price="5000">
-                    <label for="delta-sorting" class="addon-label">
-                        <div class="addon-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L22 20H2L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="addon-content">
-                            <h3>Delta Sorting</h3>
-                            <p>Advanced color and texture analysis for premium date grading</p>
-                            <span class="addon-price">+$5,000/month</span>
-                        </div>
-                    </label>
-                </div>
+            <div class="addons" aria-labelledby="addonsTitle">
+                <h2 id="addonsTitle" class="section-title" data-en="Optional Add-ons & Sorting Mechanism" data-ar="الإضافات الاختيارية وآلية الفرز">Optional Add-ons & Sorting Mechanism</h2>
                 
-                <div class="addon-item">
-                    <input type="checkbox" id="delay-machine" class="addon-checkbox" data-price="3000">
-                    <label for="delay-machine" class="addon-label">
-                        <div class="addon-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <div class="addon-content">
-                            <h3>Delay Machine</h3>
-                            <p>Buffer system for continuous operation during maintenance</p>
-                            <span class="addon-price">+$3,000/month</span>
-                        </div>
+                <!-- Sorting mechanism (radio: either rod [default included] OR delta upgrade) -->
+                <fieldset class="sorting-mechanism">
+                    <legend data-en="Sorting mechanism (choose one)" data-ar="آلية الفرز (اختر واحدة)">Sorting mechanism (choose one)</legend>
+                    <label class="sorting-option">
+                        <input type="radio" name="sorting" value="rod" data-cost="0" checked>
+                        <span class="option-content">
+                            <strong data-en="Standard Stainless CNC rod system (included)" data-ar="نظام القضبان الستانلس CNC القياسي (مدرج)">Standard Stainless CNC rod system (included)</strong>
+                        </span>
                     </label>
-                </div>
-                
-                <div class="addon-item">
-                    <input type="checkbox" id="washing-station" class="addon-checkbox" data-price="4000">
-                    <label for="washing-station" class="addon-label">
-                        <div class="addon-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <div class="addon-content">
-                            <h3>Washing Station</h3>
-                            <p>Automated cleaning and sanitization before sorting</p>
-                            <span class="addon-price">+$4,000/month</span>
-                        </div>
+                    <label class="sorting-option">
+                        <input type="radio" name="sorting" value="delta" data-cost="200000">
+                        <span class="option-content">
+                            <strong data-en="Delta sorting cell (upgrade / replacement)" data-ar="وحدة دلتا (ترقية / بديل)">Delta sorting cell (upgrade / replacement)</strong>
+                            <span class="option-price" data-en="Indicative 120k–300k SAR" data-ar="السعر: ١٢٠–٣٠٠ ألف ر.س تقريبًا">Indicative 120k–300k SAR</span>
+                            <p data-en="High-speed robotic pick-and-place; replaces rod module." data-ar="ذراع روبوتية عالية السرعة؛ تحل محل نظام القضبان.">High-speed robotic pick-and-place; replaces rod module.</p>
+                        </span>
                     </label>
-                </div>
+                </fieldset>
+
+                <h3 class="subsection-title" data-en="Optional Modules" data-ar="الوحدات الاختيارية">Optional Modules</h3>
+                <form id="addonsForm" class="addons-form">
+                    <label class="addon-option">
+                        <input type="checkbox" name="delay" value="20000">
+                        <span class="addon-content">
+                            <strong data-en="Delay Machine (buffer)" data-ar="ماكينة تأخير (تنظيم الفجوات)">Delay Machine (buffer)</strong>
+                            <span class="addon-price" data-en="10k–30k SAR" data-ar="١٠–٣٠ ألف ر.س">10k–30k SAR</span>
+                            <p data-en="Spaces items for accurate imaging." data-ar="تتحكم في تباعد الثمار.">Spaces items for accurate imaging.</p>
+                        </span>
+                    </label>
+                    
+                    <label class="addon-option">
+                        <input type="checkbox" name="wash" value="80000">
+                        <span class="addon-content">
+                            <strong data-en="Washing Station" data-ar="خط غسيل">Washing Station</strong>
+                            <span class="addon-price" data-en="40k–120k SAR" data-ar="٤٠–١٢٠ ألف ر.س">40k–120k SAR</span>
+                            <p data-en="Food-grade rinse & dry before inspection." data-ar="غسيل وتجفيف غذائي قبل التفتيش.">Food-grade rinse & dry before inspection.</p>
+                        </span>
+                    </label>
+
+                    <div class="tier-select">
+                        <label for="tierSelect" data-en="Select factory tier" data-ar="اختر حجم المصنع">Select factory tier</label>
+                        <select id="tierSelect" aria-label="Factory tier">
+                            <option value="75000" data-label="Small" data-en="Small — Pilot" data-ar="صغير — تجريبي">Small — Pilot</option>
+                            <option value="175000" data-label="Medium" data-en="Medium — Production" data-ar="متوسط — إنتاج">Medium — Production</option>
+                            <option value="325000" data-label="Large" data-en="Large — Enterprise" data-ar="كبير — مؤسسي">Large — Enterprise</option>
+                        </select>
+                        <p class="subtotal-display">
+                            <span data-en="Estimated subtotal:" data-ar="الإجمالي المقدر:">Estimated subtotal:</span> 
+                            <strong id="subtotal">75,000 SAR</strong>
+                        </p>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -506,11 +558,22 @@
         </div>
     </section>
 
+    <!-- Pilot Program Section -->
+    <section class="pilot-program">
+        <div class="container">
+            <h2 class="section-title" data-en="Pilot Program — Test Qatmeer on your line" data-ar="برنامج تجريبي — جرّب قطمير في خطّك">Pilot Program — Test Qatmeer on your line</h2>
+            <p class="section-subtitle" data-en="We provide limited pilot slots with on-site installation, operator training (2 weeks), and 2 weeks of data collection. Apply to reserve a slot — priority for incubator & local partners." data-ar="نوفر مكانًا محدودًا للتجارب مع تركيب في الموقع وتدريب مشغّلين وجمع بيانات عمليّة. قدّم الآن لحجز مكان التجربة.">We provide limited pilot slots with on-site installation, operator training (2 weeks), and 2 weeks of data collection. Apply to reserve a slot — priority for incubator & local partners.</p>
+            <div class="pilot-cta">
+                <a href="#contact" class="btn btn-primary" data-en="Apply for Pilot" data-ar="قدّم للبرنامج التجريبي">Apply for Pilot</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get Started Today</h2>
-            <p class="section-subtitle">Ready to transform your date processing operation? Let's talk.</p>
+            <h2 class="section-title" data-en="Request Early Access / Pilot" data-ar="طلب وصول مبكّر / تجربة">Request Early Access / Pilot</h2>
+            <p class="section-subtitle" data-en="Ready to transform your date processing operation? Let's talk." data-ar="جاهز لتحويل عملية فرز التمر؟ دعنا نتحدث.">Ready to transform your date processing operation? Let's talk.</p>
             
             <div class="contact-content">
                 <div class="contact-info">

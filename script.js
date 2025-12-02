@@ -313,104 +313,65 @@
         }
     }
 
-    // Add-ons and Price Calculator
+    // Fixed Tier + Add-ons calculator (handles mutually-exclusive sorting)
     class PriceCalculator {
         constructor() {
-            this.addonCheckboxes = $$('.addon-checkbox');
-            this.tierSelector = $$('input[name="tier"]');
-            this.estimatedCostElement = $('#estimated-cost');
+            this.tierSelect = $('#tierSelect');
+            this.addonsForm = $('#addonsForm');
+            this.subtotalEl = $('#subtotal');
             this.init();
         }
 
         init() {
-            // Listen for addon changes
-            this.addonCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', () => {
-                    this.updatePrice();
-                });
-            });
-
-            // Listen for tier changes
-            this.tierSelector.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    this.updateTierRecommendation();
-                    this.updatePrice();
-                });
-            });
-
-            // Initialize with default values
-            this.updateTierRecommendation();
-            this.updatePrice();
-        }
-
-        updateTierRecommendation() {
-            const selectedTier = $('input[name="tier"]:checked');
-            if (!selectedTier) return;
-
-            const tierValue = selectedTier.value;
-            const recommendation = CONFIG.tierRecommendations[tierValue];
+            // Hook events
+            if (this.tierSelect) this.tierSelect.addEventListener('change', () => this.calcSubtotal());
+            if (this.addonsForm) this.addonsForm.addEventListener('change', () => this.calcSubtotal());
             
-            if (recommendation) {
-                // Update throughput
-                const throughputElement = $('#recommended-throughput');
-                if (throughputElement) {
-                    throughputElement.textContent = recommendation.throughput;
-                }
+            const sortingRadios = $$('input[name="sorting"]');
+            sortingRadios.forEach(r => r.addEventListener('change', () => this.calcSubtotal()));
 
-                // Update recommended add-ons
-                const addonsElement = $('#recommended-addons');
-                if (addonsElement) {
-                    const addonNames = recommendation.addons.map(addonId => {
-                        const checkbox = $(`#${addonId}`);
-                        return checkbox ? this.getAddonName(addonId) : '';
-                    }).filter(name => name);
-                    
-                    addonsElement.textContent = addonNames.join(', ') || 'None';
-                }
+            // Initial calc
+            this.calcSubtotal();
+        }
 
-                // Auto-select recommended add-ons
-                this.addonCheckboxes.forEach(checkbox => {
-                    checkbox.checked = recommendation.addons.includes(checkbox.id);
-                });
+        getSelectedTierBase() {
+            if (!this.tierSelect) return 0;
+            const sel = this.tierSelect.options[this.tierSelect.selectedIndex];
+            return Number(sel.value) || 0;
+        }
+
+        getSortingCost() {
+            // Radios named 'sorting'
+            const radios = $$('input[name="sorting"]');
+            for (const r of radios) {
+                if (r.checked) {
+                    const cost = Number(r.dataset.cost || 0);
+                    return cost;
+                }
             }
+            return 0;
         }
 
-        getAddonName(addonId) {
-            const names = {
-                'delta-sorting': 'Delta Sorting',
-                'delay-machine': 'Delay Machine',
-                'washing-station': 'Washing Station'
-            };
-            return names[addonId] || '';
-        }
-
-        updatePrice() {
-            const selectedTier = $('input[name="tier"]:checked');
-            if (!selectedTier || !this.estimatedCostElement) return;
-
-            const tierValue = selectedTier.value;
-            const recommendation = CONFIG.tierRecommendations[tierValue];
-            let totalPrice = CONFIG.basePrices[recommendation.basePrice] || 0;
-
-            // Add selected addon prices
-            this.addonCheckboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    const addonPrice = parseInt(checkbox.dataset.price) || 0;
-                    totalPrice += addonPrice;
-                }
+        getAddonsSum() {
+            let s = 0;
+            if (!this.addonsForm) return 0;
+            const checkboxes = this.addonsForm.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => { 
+                if (cb.checked) s += Number(cb.value || 0); 
             });
-
-            // Format and display price
-            this.estimatedCostElement.textContent = this.formatPrice(totalPrice);
+            return s;
         }
 
-        formatPrice(price) {
-            return new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(price);
+        calcSubtotal() {
+            if (!this.subtotalEl) return;
+            
+            // Base tier includes rod system by design; delta will be added as an upgrade (not additive with rod)
+            const base = this.getSelectedTierBase();
+            const sortingCost = this.getSortingCost(); // delta cost or 0
+            const addons = this.getAddonsSum();        // delay, wash etc.
+            const total = base + sortingCost + addons;
+            
+            this.subtotalEl.textContent = total.toLocaleString() + " SAR";
         }
     }
 
@@ -533,6 +494,14 @@
 
         showStatus(message, type) {
             if (this.statusElement) {
+                // Use multilingual messages if available
+                const messages = window.qatmeerMessages;
+                if (messages && type === 'success') {
+                    message = messages.success;
+                } else if (messages && type === 'error') {
+                    message = messages.error;
+                }
+
                 this.statusElement.textContent = message;
                 this.statusElement.className = `form-status ${type}`;
                 this.statusElement.style.display = 'block';
@@ -682,6 +651,116 @@
         }
     }
 
+    // Language Toggle
+    class LanguageToggle {
+        constructor() {
+            this.currentLang = 'en';
+            this.langButton = $('#langToggle');
+            this.langText = $('.lang-text');
+            this.init();
+        }
+
+        init() {
+            if (this.langButton) {
+                this.langButton.addEventListener('click', () => this.toggleLanguage());
+            }
+
+            // Check for stored language preference
+            const stored = localStorage.getItem('qatmeer_language');
+            if (stored && stored === 'ar') {
+                this.switchToArabic();
+            }
+        }
+
+        toggleLanguage() {
+            if (this.currentLang === 'en') {
+                this.switchToArabic();
+            } else {
+                this.switchToEnglish();
+            }
+        }
+
+        switchToArabic() {
+            this.currentLang = 'ar';
+            document.documentElement.setAttribute('lang', 'ar');
+            document.documentElement.setAttribute('dir', 'rtl');
+            
+            if (this.langText) {
+                this.langText.textContent = 'English';
+            }
+
+            // Update page title and meta description
+            document.title = "قطمير — نظام فرز وتقييم التمر آليًا";
+            const metaDesc = $('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', "قطمير يوفّر حلًّا آليًا لفرز وتصنيف التمر باستخدام روبوتات منخفضة التكلفة وذكاء اصطناعي يعمل محليًا. أنظمة جاهزة للتجربة الميدانية وقابلة للتوسيع للمصانع. قدِّم لطلب العرض التجريبي.");
+            }
+
+            this.updateContent('ar');
+            localStorage.setItem('qatmeer_language', 'ar');
+        }
+
+        switchToEnglish() {
+            this.currentLang = 'en';
+            document.documentElement.setAttribute('lang', 'en');
+            document.documentElement.setAttribute('dir', 'ltr');
+            
+            if (this.langText) {
+                this.langText.textContent = 'عربي';
+            }
+
+            // Update page title and meta description
+            document.title = "Qatmeer — Automated Date Sorting & Quality Control";
+            const metaDesc = $('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', "Qatmeer automates sorting and grading of dates using low-cost robotics and on-edge AI. Pilot-ready systems for small producers and scalable solutions for industrial lines. Request early access.");
+            }
+
+            this.updateContent('en');
+            localStorage.setItem('qatmeer_language', 'en');
+        }
+
+        updateContent(lang) {
+            // Find all elements with data-en and data-ar attributes
+            const elements = $$('[data-en][data-ar]');
+            
+            elements.forEach(element => {
+                const content = element.getAttribute(`data-${lang}`);
+                if (content) {
+                    element.textContent = content;
+                }
+            });
+
+            // Update select options
+            const selectOptions = $$('option[data-en][data-ar]');
+            selectOptions.forEach(option => {
+                const content = option.getAttribute(`data-${lang}`);
+                if (content) {
+                    option.textContent = content;
+                }
+            });
+
+            // Update form success message
+            this.updateFormMessages(lang);
+        }
+
+        updateFormMessages(lang) {
+            const messages = {
+                en: {
+                    success: "Thanks — we received your request. We'll contact you within 3 business days.",
+                    error: "Sorry, there was an error sending your message. Please try again or email us directly."
+                },
+                ar: {
+                    success: "شكرًا — تم استلام طلبك. سنتواصل معك خلال ٣ أيام عمل.",
+                    error: "عذرًا، حدث خطأ في إرسال رسالتك. يرجى المحاولة مرة أخرى أو مراسلتنا مباشرة."
+                }
+            };
+            
+            // Store messages for use by contact form
+            window.qatmeerMessages = messages[lang];
+        }
+    }
+
     // Initialize all components when DOM is ready
     function initializeApp() {
         new CookieConsent();
@@ -694,6 +773,7 @@
         new NavbarScroll();
         new AnimationObserver();
         new Analytics();
+        new LanguageToggle();
         
         console.log('Qatmeer landing page initialized successfully!');
     }
