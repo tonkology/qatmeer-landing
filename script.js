@@ -542,7 +542,7 @@
         }
     }
 
-    // Intersection Observer for Animations
+    // Enhanced Intersection Observer for Animations
     class AnimationObserver {
         constructor() {
             this.init();
@@ -552,38 +552,78 @@
             if ('IntersectionObserver' in window) {
                 const options = {
                     root: null,
-                    rootMargin: '0px 0px -100px 0px',
-                    threshold: 0.1
+                    rootMargin: '0px 0px -80px 0px',
+                    threshold: 0.15
                 };
 
                 this.observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
+                    entries.forEach((entry, index) => {
                         if (entry.isIntersecting) {
-                            entry.target.classList.add('animate-in');
+                            // Add staggered delay for multiple elements
+                            setTimeout(() => {
+                                entry.target.classList.add('animate-in');
+                            }, index * 100);
                             this.observer.unobserve(entry.target);
                         }
                     });
                 }, options);
 
                 // Observe elements that should animate in
-                const animatedElements = $$('.feature-card, .timeline-item, .pricing-card, .team-member, .testimonial-card');
-                animatedElements.forEach(element => {
-                    element.style.opacity = '0';
-                    element.style.transform = 'translateY(30px)';
-                    element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                    this.observer.observe(element);
-                });
-
-                // Add CSS for animate-in class
-                const style = document.createElement('style');
-                style.textContent = `
-                    .animate-in {
-                        opacity: 1 !important;
-                        transform: translateY(0) !important;
-                    }
-                `;
-                document.head.appendChild(style);
+                this.setupAnimations();
             }
+        }
+
+        setupAnimations() {
+            // Cards and components
+            const cards = $$('.feature-card, .pricing-card, .team-member, .testimonial-card, .credibility-item');
+            cards.forEach((element, index) => {
+                element.classList.add('animate-on-scroll');
+                this.observer.observe(element);
+            });
+
+            // Timeline items
+            const timelineItems = $$('.timeline-item');
+            timelineItems.forEach((element, index) => {
+                element.classList.add('animate-on-scroll');
+                element.style.transitionDelay = `${index * 0.2}s`;
+                this.observer.observe(element);
+            });
+
+            // Section titles and subtitles
+            const sectionElements = $$('.section-title, .section-subtitle');
+            sectionElements.forEach(element => {
+                element.classList.add('animate-on-scroll');
+                this.observer.observe(element);
+            });
+
+            // Add enhanced CSS for animate-in class
+            this.addAnimationStyles();
+        }
+
+        addAnimationStyles() {
+            const style = document.createElement('style');
+            style.textContent = `
+                .animate-in {
+                    opacity: 1 !important;
+                    transform: translateY(0) !important;
+                }
+                
+                /* Staggered animations for grids */
+                .features-grid .feature-card:nth-child(1) { transition-delay: 0.1s; }
+                .features-grid .feature-card:nth-child(2) { transition-delay: 0.2s; }
+                .features-grid .feature-card:nth-child(3) { transition-delay: 0.3s; }
+                
+                .pricing-grid .pricing-card:nth-child(1) { transition-delay: 0.1s; }
+                .pricing-grid .pricing-card:nth-child(2) { transition-delay: 0.2s; }
+                .pricing-grid .pricing-card:nth-child(3) { transition-delay: 0.3s; }
+                
+                .team-grid .team-member:nth-child(1) { transition-delay: 0.1s; }
+                .team-grid .team-member:nth-child(2) { transition-delay: 0.2s; }
+                .team-grid .team-member:nth-child(3) { transition-delay: 0.3s; }
+                .team-grid .team-member:nth-child(4) { transition-delay: 0.4s; }
+                .team-grid .team-member:nth-child(5) { transition-delay: 0.5s; }
+            `;
+            document.head.appendChild(style);
         }
     }
 
