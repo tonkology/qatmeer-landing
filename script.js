@@ -313,7 +313,8 @@
         }
     }
 
-    // Fixed Tier + Add-ons calculator (handles mutually-exclusive sorting)
+    // COMMENTED OUT - PriceCalculator class (addons section removed)
+    /*
     class PriceCalculator {
         constructor() {
             this.tierSelect = $('#tierSelect');
@@ -374,6 +375,7 @@
             this.subtotalEl.textContent = total.toLocaleString() + " SAR";
         }
     }
+    */
 
     // Contact Form Handler
     class ContactForm {
@@ -808,7 +810,7 @@
         new SmoothScroll();
         new DemoModal();
         new FAQAccordion();
-        new PriceCalculator();
+        // new PriceCalculator(); // Commented out - addons section removed
         new ContactForm();
         new NavbarScroll();
         new AnimationObserver();
