@@ -1,0 +1,5 @@
+<!-- Shield Icon for Food-Safe Design -->
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2L4 6V12C4 16.55 7.84 20.74 12 21.5C16.16 20.74 20 16.55 20 12V6L12 2Z" fill="currentColor"/>
+  <path d="M12 7L15 10L10 15L9 14L12 7Z" fill="white" stroke="white" stroke-width="1"/>
+</svg>
