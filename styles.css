@@ -51,11 +51,13 @@
     
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-headings: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --font-weight-extra-bold: 800;
     
     /* Spacing */
     --spacing-xs: 0.25rem;   /* 4px */
@@ -133,26 +135,34 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
+/* Typography - Enhanced Hierarchy with Organic Headings */
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
     margin-bottom: var(--spacing-md);
+    color: var(--color-primary-dark);
+    letter-spacing: -0.02em;
 }
 
 h1 {
-    font-size: 3rem;
-    font-weight: var(--font-weight-bold);
+    font-size: 3.5rem;
+    font-weight: var(--font-weight-extra-bold);
+    line-height: 1.1;
+    margin-bottom: var(--spacing-lg);
 }
 
 h2 {
-    font-size: 2.25rem;
+    font-size: 2.75rem;
     font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+    margin-bottom: var(--spacing-lg);
 }
 
 h3 {
-    font-size: 1.875rem;
-    font-weight: var(--font-weight-semibold);
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
 }
 
 h4 {
@@ -162,7 +172,7 @@ h4 {
 
 h5 {
     font-size: 1.25rem;
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-semibold);
 }
 
 h6 {
@@ -170,8 +180,19 @@ h6 {
     font-weight: var(--font-weight-medium);
 }
 
+/* Enhanced Body Text */
 p {
     margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+    color: var(--color-gray-700);
+    font-size: 1.1rem;
+}
+
+.lead-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-gray-600);
+    font-weight: var(--font-weight-normal);
 }
 
 a {
@@ -383,8 +404,11 @@ a:focus {
 }
 
 .logo-text {
-    font-size: 1.25rem;
+    font-family: var(--font-headings);
+    font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
+    color: var(--color-primary-dark);
+    letter-spacing: -0.01em;
 }
 
 .nav-toggle {
@@ -533,23 +557,32 @@ a:focus {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
+    font-family: var(--font-headings);
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    font-weight: var(--font-weight-extra-bold);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
 }
 
 .hero-tagline {
-    font-size: 1.25rem;
+    font-family: var(--font-headings);
+    font-size: 1.4rem;
     font-weight: var(--font-weight-semibold);
-    color: var(--color-accent);
+    color: var(--color-primary);
     margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.01em;
 }
 
 .hero-description {
-    font-size: 1.125rem;
-    color: var(--color-gray-700);
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    color: var(--color-gray-600);
     margin-bottom: var(--spacing-2xl);
-    line-height: 1.7;
+    line-height: 1.6;
+    font-weight: var(--font-weight-normal);
+    max-width: 540px;
 }
 
 .hero-cta {
@@ -610,18 +643,29 @@ a:focus {
     box-shadow: var(--shadow-sm);
 }
 
-/* Section Styles */
+/* Section Styles - Enhanced Typography */
 .section-title {
+    font-family: var(--font-headings);
     text-align: center;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-lg);
+    font-weight: var(--font-weight-extra-bold);
+    font-size: 2.5rem;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
 }
 
 .section-subtitle {
+    font-family: var(--font-primary);
     text-align: center;
     color: var(--color-gray-600);
-    font-size: 1.125rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
     margin-bottom: var(--spacing-3xl);
+    font-weight: var(--font-weight-normal);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Features Section */
