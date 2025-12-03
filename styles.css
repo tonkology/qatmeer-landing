@@ -7,37 +7,42 @@
 
 /* CSS Custom Properties (Variables) */
 :root {
-    /* Enhanced Color Palette */
-    --color-primary: #0F4C81;
-    --color-primary-light: #1E5A94;
-    --color-primary-dark: #0A3B68;
-    --color-accent: #F5A623;
-    --color-accent-light: #F7B547;
-    --color-accent-dark: #E09110;
-    --color-neutral: #0F1724;
-    --color-background: #F7FAFF;
+    /* Date-Inspired Color Palette from Qatmeer Logo */
+    --color-primary: #D2691E;        /* Chocolate Orange - main brand color */
+    --color-primary-light: #F4A460;  /* Sandy Brown - lighter variant */
+    --color-primary-dark: #8B4513;   /* Saddle Brown - darker variant */
+    --color-accent: #CD853F;         /* Peru - secondary actions */
+    --color-accent-light: #DEB887;   /* Burlywood - light accent */
+    --color-accent-dark: #A0522D;    /* Sienna - dark accent */
+    --color-neutral: #2A1F15;        /* Dark Brown - neutral text */
+    --color-background: #FDF6E3;     /* Warm off-white background */
     --color-white: #FFFFFF;
     
-    /* Gradient Definitions */
+    /* Date-Inspired Gradient Definitions */
     --gradient-primary: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
     --gradient-accent: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 50%, var(--color-accent-dark) 100%);
-    --gradient-hero: linear-gradient(135deg, var(--color-background) 0%, rgba(15, 76, 129, 0.05) 100%);
-    --gradient-card: linear-gradient(145deg, var(--color-white) 0%, rgba(247, 250, 255, 0.8) 100%);
+    --gradient-hero: linear-gradient(135deg, var(--color-background) 0%, rgba(210, 105, 30, 0.05) 100%);
+    --gradient-card: linear-gradient(145deg, var(--color-white) 0%, rgba(253, 246, 227, 0.8) 100%);
     
-    /* Enhanced Shadow System */
-    --shadow-sm: 0 2px 4px rgba(15, 76, 129, 0.08);
-    --shadow-md: 0 4px 12px rgba(15, 76, 129, 0.12);
-    --shadow-lg: 0 8px 24px rgba(15, 76, 129, 0.15);
-    --shadow-xl: 0 16px 48px rgba(15, 76, 129, 0.18);
-    --shadow-accent: 0 4px 16px rgba(245, 166, 35, 0.25);
-    --color-gray-100: #F8F9FA;
-    --color-gray-200: #E9ECEF;
-    --color-gray-300: #DEE2E6;
-    --color-gray-400: #CED4DA;
-    --color-gray-500: #ADB5BD;
-    --color-gray-600: #6C757D;
-    --color-gray-700: #495057;
-    --color-gray-800: #343A40;
+    /* Warm Shadow System */
+    --shadow-sm: 0 2px 4px rgba(139, 69, 19, 0.12);
+    --shadow-md: 0 4px 12px rgba(139, 69, 19, 0.15);
+    --shadow-lg: 0 8px 24px rgba(139, 69, 19, 0.18);
+    --shadow-xl: 0 16px 48px rgba(139, 69, 19, 0.22);
+    --shadow-accent: 0 4px 16px rgba(205, 133, 63, 0.30);
+    --color-gray-100: #F5F0E8;        /* Warm gray tints */
+    --color-gray-200: #EDE4D3;
+    --color-gray-300: #D4C4A8;
+    --color-gray-400: #C4B59C;
+    --color-gray-500: #A0927D;
+    --color-gray-600: #8B7355;
+    --color-gray-700: #6D5A3E;
+    --color-gray-800: #4A3B2A;
+    
+    /* Success, Warning, Error Colors (date-themed) */
+    --color-success: #228B22;         /* Forest Green */
+    --color-warning: #FF8C00;         /* Dark Orange */
+    --color-error: #CD5C5C;           /* Indian Red */
     --color-gray-900: #212529;
     --color-success: #28A745;
     --color-danger: #DC3545;
